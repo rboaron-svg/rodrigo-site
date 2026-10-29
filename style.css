@@ -130,4 +130,15 @@ footer p { margin: 0 0 0.5rem; max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 
-.cat img[src*="solarpath"] { object-position: 0 0; }
+.cat img[src*="solarpath"] { object-position: 50% 0 !important; }
+
+/* compact hero on the portfolio home so the projects start in the first screen */
+.hero-compact { padding-top: var(--s-3); }
+.hero-compact h1 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); max-width: 34ch; margin-bottom: var(--s-2); }
+.hero-compact .lede { margin-bottom: 0; }
+.cats-wrap { padding-top: var(--s-3); }
+.cats-wrap .now { margin-top: var(--s-3); }
+.cat .items { list-style: none; margin: 0.25rem 0 0; padding: 0; font-size: 1rem; line-height: 1.4; }
+.cat .items li { margin-bottom: 0.3rem; padding-left: 0.9rem; position: relative; }
+.cat .items li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.4rem; height: 2px; background: var(--ink); }
+.cat img { aspect-ratio: 16 / 9; }
