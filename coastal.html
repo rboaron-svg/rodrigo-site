@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Coastal design, Rodrigo Boaron Otero</title>
+<meta name="description" content="A redesign of the MOSE storm barrier in Venice as a movable barrier, with a working scale model.">
+<meta property="og:title" content="Coastal design, Rodrigo Boaron Otero">
+<meta property="og:description" content="A redesign of the MOSE storm barrier in Venice as a movable barrier, with a working scale model.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315231c'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23f4f6f2'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="name" href="index.html">Rodrigo Boaron Otero</a>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html" aria-current="page">Portfolio</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a class="btn btn-small" href="mailto:rodrigoboaron07@gmail.com?subject=Hello%20Rodrigo">Email me</a>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="crumb"><a href="index.html">&larr; Portfolio</a></p>
+    <h1>Coastal design</h1>
+    <p class="lede">The project that made me want to study civil engineering.</p>
+  </section>
+
+  <section id="barrier" class="project">
+    <div class="text">
+    <h2>Movable storm barrier</h2>
+    <div class="titleblock" role="table" aria-label="Project details">
+      <div class="tb-row tb-wide" role="row"><span class="tb-k" role="rowheader">Project</span><span class="tb-v tb-big" role="cell">Movable storm barrier, a redesign of Venice's MOSE</span></div>
+      <div class="tb-row" role="row"><span class="tb-k" role="rowheader">Status</span><span class="tb-v tb-status" role="cell">Scale model built</span></div>
+      <div class="tb-row" role="row"><span class="tb-k" role="rowheader">Drawn by</span><span class="tb-v" role="cell">R. Boaron Otero</span></div>
+      <div class="tb-row" role="row"><span class="tb-k" role="rowheader">Brief</span><span class="tb-v" role="cell">A Level 3D Design</span></div>
+      <div class="tb-row" role="row"><span class="tb-k" role="rowheader">Age</span><span class="tb-v" role="cell">16</span></div>
+    </div>
+      <p>I redesigned Venice's MOSE storm barrier as a movable barrier based on the Thames Barrier, then built a scale model to see it close across a channel. What pulled me in was solving the problem across all its parts, at small scale.</p>
+      <p>Working through it showed me how much civil engineering can do, including protecting people in coastal zones. It is why I'm studying civil engineering, why I'm taking Ocean Engineering as a minor, and why I later gave a Student Society talk on the problems MOSE faces.</p>
+    </div>
+    <div class="figs">
+      <figure class="shot shot-video">
+        <video id="barrier-video" src="media/barrier-model.mp4" poster="media/barrier-model-poster.jpg" width="480" height="848" muted loop autoplay playsinline preload="metadata" aria-label="A scale model of a movable barrier. A rotating gate swings closed across a channel while water runs over the board."></video>
+        <figcaption>The scale model of my movable barrier design, with the gate closing across a channel.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="ask">
+    <h2>Want to talk through any of these?</h2>
+    <p>I'd be glad to hear what you'd have done differently.</p>
+    <a class="btn" href="mailto:rodrigoboaron07@gmail.com?subject=Hello%20Rodrigo">Email me</a>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="mailto:rodrigoboaron07@gmail.com">rodrigoboaron07@gmail.com</a></p>
+  <p><a href="https://www.linkedin.com/in/rodrigoboaronotero">LinkedIn</a></p>
+</footer>
+<script>
+  (function () {
+    var v = document.getElementById("barrier-video");
+    if (v && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      v.removeAttribute("autoplay"); v.pause(); v.setAttribute("controls", "");
+    }
+  })();
+</script>
+</body>
+</html>
