@@ -188,3 +188,7 @@ body::before {
 
 /* empty portrait frame, until a photo is added */
 .portrait-empty { aspect-ratio: 4 / 5; border: 2px solid var(--ink); box-shadow: 0.35rem 0.35rem 0 var(--rule); }
+
+/* justified body text; short or display text stays left-aligned */
+main p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-justify: inter-word; }
+main .lede, main .tags, main .now, main .question, main .shot figcaption, main .cat p, main .pager p { text-align: left; hyphens: manual; }
