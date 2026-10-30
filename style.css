@@ -1,9 +1,13 @@
-/* Two colours: drafting-paper grey-white and ink green-black, plus one signal orange used only for actions and the status. */
+/* Harbour palette: cool drafting paper, deep marine ink, plus one survey-orange signal used only for actions and the status. */
 :root {
-  --paper: #f4f6f2;
-  --ink: #15231c;
-  --signal: #c2410c;
-  --rule: rgba(21, 35, 28, 0.35);
+  --paper: #eef3f4;
+  --ink: #0e2a36;
+  --signal: #c94a0a;
+  --rule: rgba(14, 42, 54, 0.35);
+  --grid: rgba(14, 42, 54, 0.07);
+  --hover: #ffffff;
+  --on-signal: #ffffff;
+  --on-ink: #eef3f4;
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   /* one spacing scale for the whole site */
@@ -20,6 +24,8 @@
 html { -webkit-text-size-adjust: 100%; }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -44,8 +50,8 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--signal); outline-
 .nav a[aria-current="page"] { border-bottom-color: var(--ink); font-weight: 500; }
 .nav a:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
 
-.btn { display: inline-block; background: var(--signal); color: #fff; font-family: var(--mono); font-size: 0.95rem; font-weight: 500; text-decoration: none; padding: 0.85rem 1.4rem; border-radius: 2px; min-height: 44px; }
-.btn:hover { background: var(--ink); }
+.btn { display: inline-block; background: var(--signal); color: var(--on-signal); font-family: var(--mono); font-size: 0.95rem; font-weight: 500; text-decoration: none; padding: 0.85rem 1.4rem; border-radius: 2px; min-height: 44px; }
+.btn:hover { background: var(--ink); color: var(--on-ink); }
 .btn-small { padding: 0.5rem 1rem; font-size: 0.85rem; min-height: 40px; }
 
 .textlink { font-family: var(--mono); font-size: 0.95rem; }
@@ -64,7 +70,9 @@ p { margin: 0 0 var(--s-2); max-width: var(--measure); }
 /* portfolio hub: category cards */
 .cats { display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); padding-top: 0; }
 .cat { display: flex; flex-direction: column; border: 1px solid var(--ink); text-decoration: none; background: var(--paper); }
-.cat:hover { background: #fff; }
+.cat { transition: background-color .15s, color .15s; }
+.cat:hover { background: var(--ink); color: var(--on-ink); }
+.cat:hover img { border-bottom-color: var(--on-ink); }
 .cat:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
 .cat img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 30%; border-bottom: 1px solid var(--ink); background: var(--ink); }
 .cat-body { padding: var(--s-2) var(--s-2) var(--s-3); display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
@@ -142,3 +150,40 @@ footer p { margin: 0 0 0.5rem; max-width: none; }
 .cat .items li { margin-bottom: 0.3rem; padding-left: 0.9rem; position: relative; }
 .cat .items li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 0.4rem; height: 2px; background: var(--ink); }
 .cat img { aspect-ratio: 16 / 9; }
+
+/* ---- polish pass ---- */
+::selection { background: var(--ink); color: var(--on-ink); }
+h1, h2, h3 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+/* a faint drafting grid behind the top of every page, fading out */
+body::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 34rem; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+.top { background: var(--paper); }
+
+/* small mono text: a little more legible */
+.tb-k, .creds dt, .cat .tags, .shot figcaption { opacity: 0.82; }
+.tb-k, .creds dt { font-size: 0.75rem; letter-spacing: 0.02em; }
+.cat .tags { font-size: 0.8rem; }
+
+/* title block reads as a drawing-sheet element */
+.titleblock { background: var(--paper); box-shadow: 0.35rem 0.35rem 0 var(--rule); }
+.tb-status::before { content: ""; display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: currentColor; margin-right: 0.45rem; vertical-align: 0.02em; }
+
+/* sub-page footer navigation */
+.pager { display: grid; gap: var(--s-2); grid-template-columns: 1fr; padding-top: var(--s-4); }
+.pager a { display: block; border: 1px solid var(--ink); padding: var(--s-2); text-decoration: none; font-family: var(--mono); font-size: 0.9rem; }
+.pager a span { display: block; font-family: var(--serif); font-size: 1.25rem; margin-top: 0.15rem; }
+.pager a:hover { background: var(--ink); color: var(--on-ink); }
+.pager a:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+.pager .next { text-align: right; }
+@media (min-width: 40rem) { .pager { grid-template-columns: 1fr 1fr; } }
+
+/* about portrait gets the same offset as the title blocks */
+.portrait img { box-shadow: 0.35rem 0.35rem 0 var(--rule); }
