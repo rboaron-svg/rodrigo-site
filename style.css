@@ -185,3 +185,6 @@ body::before {
 
 /* about portrait gets the same offset as the title blocks */
 .portrait img { box-shadow: 0.35rem 0.35rem 0 var(--rule); }
+
+/* empty portrait frame, until a photo is added */
+.portrait-empty { aspect-ratio: 4 / 5; border: 2px solid var(--ink); box-shadow: 0.35rem 0.35rem 0 var(--rule); }
